@@ -13,11 +13,9 @@ else
     a_hre = 3.2*(log10(11.75*hre))^2 - 4.97;
 end
 % -------------------- Path Loss (Fixed Values) --------------------
-L_urban_val = 69.55 + 26.16*log10(fc_fixed) - 13.82*log10(hte) - a_hre + (44.9 -
-6.55*log10(hte))*log10(d_fixed);
+L_urban_val = 69.55 + 26.16*log10(fc_fixed) - 13.82*log10(hte) - a_hre + (44.9 - 6.55*log10(hte))*log10(d_fixed);
 L_suburban_val = L_urban_val - 2*(log10(fc_fixed/28))^2 - 5.4;
-L_open_val = L_urban_val - 4.78*(log10(fc_fixed))^2 + 18.33*log10(fc_fixed) -
-40.98;
+L_open_val = L_urban_val - 4.78*(log10(fc_fixed))^2 + 18.33*log10(fc_fixed) - 40.98;
 fprintf('\n===== HATA MODEL PATH LOSS VALUES (BIG CITY) =====\n');
 fprintf('Frequency = %d MHz\n', fc_fixed);
 fprintf('Distance = %d km\n', d_fixed);
@@ -33,8 +31,7 @@ idx_150_200 = (f >= 150 & f <= 200);
 idx_200_1500 = (f > 200 & f <= 1500);
 a_hre_f(idx_150_200) = 8.29*(log10(1.54*hre))^2 - 1.1;
 a_hre_f(idx_200_1500) = 3.2*(log10(11.75*hre))^2 - 4.97;
-L_urban_f = 69.55 + 26.16*log10(f) - 13.82*log10(hte) - a_hre_f + (44.9 -
-6.55*log10(hte))*log10(d_fixed);
+L_urban_f = 69.55 + 26.16*log10(f) - 13.82*log10(hte) - a_hre_f + (44.9 - 6.55*log10(hte))*log10(d_fixed);
 L_suburban_f = L_urban_f - 2*(log10(f/28)).^2 - 5.4;
 L_open_f = L_urban_f - 4.78*(log10(f)).^2 + 18.33*log10(f) - 40.98;
 figure;
@@ -48,8 +45,7 @@ title('Hata Model (Big City): Path Loss vs Frequency');
 legend('Urban (Big City)', 'Suburban', 'Open Area');
 % -------------------- Path Loss vs Distance --------------------
 d = 1:1:50;
-L_urban_d = 69.55 + 26.16*log10(fc_fixed) - 13.82*log10(hte) - a_hre + (44.9 -
-6.55*log10(hte))*log10(d);
+L_urban_d = 69.55 + 26.16*log10(fc_fixed) - 13.82*log10(hte) - a_hre + (44.9 - 6.55*log10(hte))*log10(d);
 L_suburban_d = L_urban_d - 2*(log10(fc_fixed/28))^2 - 5.4;
 L_open_d = L_urban_d - 4.78*(log10(fc_fixed))^2 + 18.33*log10(fc_fixed) - 40.98;
 figure;
