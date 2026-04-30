@@ -8,11 +8,9 @@ hre = 10; % Rx antenna height (m)
 d_fixed = 50; % Distance (km)
 % -------------------- Path Loss (Fixed Values) --------------------
 a_hre = (1.1*log10(fc_fixed) - 0.7)*hre - (1.56*log10(fc_fixed) - 0.8);
-L_urban_val = 69.55 + 26.16*log10(fc_fixed) - 13.82*log10(hte) - a_hre + (44.9 -
-6.55*log10(hte))*log10(d_fixed);
+L_urban_val = 69.55 + 26.16*log10(fc_fixed) - 13.82*log10(hte) - a_hre + (44.9 - 6.55*log10(hte))*log10(d_fixed);
 L_suburban_val = L_urban_val - 2*(log10(fc_fixed/28))^2 - 5.4;
-L_open_val = L_urban_val - 4.78*(log10(fc_fixed))^2 + 18.33*log10(fc_fixed) -
-40.98;
+L_open_val = L_urban_val - 4.78*(log10(fc_fixed))^2 + 18.33*log10(fc_fixed) - 40.98;
 fprintf('\n===== HATA MODEL PATH LOSS VALUES =====\n');
 fprintf('Frequency = %d MHz\n', fc_fixed);
 fprintf('Distance = %d km\n', d_fixed);
@@ -24,8 +22,7 @@ fprintf('Open Area Path Loss = %.2f dB\n', L_open_val);
 % -------------------- Path Loss vs Frequency --------------------
 f = 150:10:1500;
 a_hre_f = (1.1*log10(f) - 0.7).*hre - (1.56*log10(f) - 0.8);
-L_urban_f = 69.55 + 26.16*log10(f) - 13.82*log10(hte) - a_hre_f + (44.9 -
-6.55*log10(hte))*log10(d_fixed);
+L_urban_f = 69.55 + 26.16*log10(f) - 13.82*log10(hte) - a_hre_f + (44.9 - 6.55*log10(hte))*log10(d_fixed);
 L_suburban_f = L_urban_f - 2*(log10(f/28)).^2 - 5.4;
 L_open_f = L_urban_f - 4.78*(log10(f)).^2 + 18.33*log10(f) - 40.98;
 figure;
@@ -39,8 +36,7 @@ title('Hata Model: Path Loss vs Frequency');
 legend('Urban', 'Suburban', 'Open Area');
 % -------------------- Path Loss vs Distance --------------------
 d = 1:1:50;
-L_urban_d = 69.55 + 26.16*log10(fc_fixed) - 13.82*log10(hte) - a_hre + (44.9 -
-6.55*log10(hte))*log10(d);
+L_urban_d = 69.55 + 26.16*log10(fc_fixed) - 13.82*log10(hte) - a_hre + (44.9 - 6.55*log10(hte))*log10(d);
 L_suburban_d = L_urban_d - 2*(log10(fc_fixed/28))^2 - 5.4;
 L_open_d = L_urban_d - 4.78*(log10(fc_fixed))^2 + 18.33*log10(fc_fixed) - 40.98;
 figure;
